@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="34" fill="#1f2a23"/>
+  <path d="M90 22 L130 70 H110 L141 118 H121 L152 158 H28 L59 118 H39 L70 70 H50 Z" fill="#f3eedf"/>
+  <rect x="78" y="138" width="24" height="20" fill="#b1632a"/>
+  <text x="90" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#b1632a" letter-spacing="2">MK</text>
+</svg>

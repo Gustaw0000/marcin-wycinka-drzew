@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pl-PL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#1f2a23">
+<title>Nie ma takiej strony, 404 | Marcin Kowalski, wycinka drzew</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  gap: 1rem;
+}
+.not-found h1 {
+  font-size: clamp(4rem, 6rem + 6vw, 10rem);
+  margin: 0;
+  line-height: 0.9;
+  color: var(--copper);
+}
+.not-found p { max-width: 50ch; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Przejdź do treści</a>
+<header role="banner" class="site-header">
+  <div class="wrap header-wrap">
+    <a href="/" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M16 2 L24 12 H20 L26 22 H22 L28 30 H4 L10 22 H6 L12 12 H8 Z" fill="currentColor"/><rect x="14" y="26" width="4" height="4" fill="#b1632a"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Marcin Kowalski</span>
+        <span class="brand-sub">wycinka drzew, frezowanie pni</span>
+      </span>
+    </a>
+  </div>
+</header>
+<main id="main">
+  <section class="not-found">
+    <h1>404</h1>
+    <p>
+      Tego adresu nie ma. Może linkował do starszej wersji strony, może literówka. Wróć na stronę główną, tam wszystko stoi na swoim miejscu.
+    </p>
+    <p><a class="btn btn-primary" href="/">Wróć na stronę główną</a></p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2a23"/>
+      <stop offset="60%" stop-color="#2c3a31"/>
+      <stop offset="100%" stop-color="#1a221d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.6">
+      <stop offset="0%" stop-color="#b1632a" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#b1632a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#f3eedf" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(80, 130)">
+    <text x="0" y="0" font-family="Manrope, system-ui, sans-serif" font-size="22" letter-spacing="4" fill="#d68a44" font-weight="600">WARSZAWA, PRUSZKÓW, PIASTÓW, BRWINÓW, MAZOWSZE</text>
+  </g>
+
+  <g transform="translate(80, 210)">
+    <text x="0" y="0" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" fill="#f3eedf" letter-spacing="-2">Wycinka drzew,</text>
+    <text x="0" y="110" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" font-style="italic" fill="#d68a44" letter-spacing="-2">frezowanie pni,</text>
+    <text x="0" y="220" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" fill="#f3eedf" letter-spacing="-2">podcinanie gałęzi.</text>
+  </g>
+
+  <g transform="translate(80, 540)">
+    <rect x="0" y="-22" width="36" height="36" rx="6" fill="#f3eedf"/>
+    <path d="M18 -16 L25 -8.5 H22 L27 -1 H24 L29 6 H7 L12 -1 H9 L14 -8.5 H11 Z" fill="#1f2a23"/>
+    <text x="56" y="2" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#f3eedf">Marcin Kowalski</text>
+    <text x="56" y="34" font-family="Manrope, system-ui, sans-serif" font-size="18" fill="#d68a44" letter-spacing="2">ÓSMY ROK NA SWOIM · FAKTURA IMIENNA</text>
+  </g>
+</svg>

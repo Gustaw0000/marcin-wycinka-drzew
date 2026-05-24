@@ -1,0 +1,16 @@
+{
+  "name": "marcin-wycinka-drzew",
+  "version": "1.0.0",
+  "description": "Strona firmowa, Marcin Kowalski, wycinka drzew i frezowanie pni, Warszawa i Mazowsze.",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Marcin Kowalski, wycinka drzew",
+  "short_name": "MK Wycinka",
+  "description": "Wycinka drzew, frezowanie pni i podcinanie gałęzi. Warszawa i Mazowsze.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3eedf",
+  "theme_color": "#1f2a23",
+  "lang": "pl-PL",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["business", "services"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/apple-touch-icon.svg", "sizes": "180x180", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,14 @@
+/* TEAM */
+
+  Wykonawca usług: Marcin Kowalski
+  Specjalizacja: wycinka drzew, frezowanie pni, podcinanie gałęzi
+  Działalność: jednoosobowa, faktura imienna
+  Kontakt: telefon na stronie
+  Obszar: Warszawa, powiat warszawski zachodni, Mazowsze
+
+/* SITE */
+
+  Język: polski
+  Standardy: HTML5, CSS3, vanilla JS
+  Hosting: Railway
+  Czcionki: Fraunces, Manrope

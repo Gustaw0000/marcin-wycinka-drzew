@@ -1,0 +1,4 @@
+Contact: mailto:kontakt@example.pl
+Preferred-Languages: pl, en
+Canonical: {{SITE_URL}}/.well-known/security.txt
+Expires: 2027-01-01T00:00:00.000Z
