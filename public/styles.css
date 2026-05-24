@@ -352,6 +352,10 @@ a:hover { color: var(--copper-dark); text-decoration-color: var(--copper); }
   flex-direction: column;
   gap: 0.7rem;
 }
+.o-mnie .cred-list { align-self: end; }
+@media (max-width: 900px) {
+  .o-mnie .cred-list { align-self: stretch; }
+}
 .cred-list li {
   font-size: 0.96rem;
   color: var(--ink-soft);
