@@ -48,6 +48,47 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  (function cookieBanner() {
+    var ackKey = 'mk-cookies-ack';
+    var alreadyAcked = false;
+    try { alreadyAcked = window.localStorage && window.localStorage.getItem(ackKey) === '1'; } catch (e) {}
+    if (alreadyAcked) return;
+
+    var banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-live', 'polite');
+    banner.setAttribute('aria-labelledby', 'cookie-banner-text');
+    banner.innerHTML = '' +
+      '<div class="cookie-banner-text">' +
+        '<p id="cookie-banner-text">Strona używa wyłącznie technicznych plików potrzebnych do działania. Bez analityki, bez śledzenia, bez reklam.</p>' +
+      '</div>' +
+      '<div class="cookie-banner-actions">' +
+        '<a class="cookie-banner-link" href="/polityka-prywatnosci">Polityka prywatności</a>' +
+        '<button type="button" class="btn btn-primary cookie-banner-btn">Rozumiem</button>' +
+      '</div>';
+
+    var show = function () {
+      document.body.appendChild(banner);
+      requestAnimationFrame(function () { banner.classList.add('is-in'); });
+    };
+    var dismiss = function () {
+      banner.classList.remove('is-in');
+      setTimeout(function () { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 350);
+      try { window.localStorage && window.localStorage.setItem(ackKey, '1'); } catch (e) {}
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { setTimeout(show, 800); });
+    } else {
+      setTimeout(show, 800);
+    }
+    banner.addEventListener('click', function (event) {
+      if (event.target && event.target.classList && event.target.classList.contains('cookie-banner-btn')) {
+        dismiss();
+      }
+    });
+  })();
+
   var form = document.getElementById('zgloszenie');
   if (form) {
     var status = form.querySelector('.form-status');

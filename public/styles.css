@@ -760,6 +760,156 @@ a.contact-val:hover { color: var(--copper-dark); }
 }
 .legal-small { margin: 0; }
 
+/* Cookie banner */
+
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  background: rgba(31, 42, 35, 0.96);
+  color: var(--paper);
+  border: 1px solid rgba(214, 138, 68, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1.2rem 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform 380ms var(--ease-out), opacity 280ms var(--ease-out);
+}
+.cookie-banner.is-in { transform: translateY(0); opacity: 1; }
+.cookie-banner-text { flex: 1 1 auto; min-width: 0; }
+.cookie-banner-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(243, 238, 223, 0.92);
+  max-width: 68ch;
+}
+.cookie-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-shrink: 0;
+}
+.cookie-banner-link {
+  color: var(--copper-glow);
+  font-size: 0.88rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(214, 138, 68, 0.45);
+  text-underline-offset: 3px;
+}
+.cookie-banner-link:hover { color: var(--paper); text-decoration-color: var(--paper); }
+.cookie-banner-btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+}
+@media (max-width: 700px) {
+  .cookie-banner {
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    padding: 0.9rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .cookie-banner-actions { justify-content: space-between; }
+  .cookie-banner-btn { flex: 1; }
+}
+
+/* Legal pages (polityka, regulamin) */
+
+.page-legal { background: var(--paper); }
+.legal { padding: clamp(2.5rem, 3rem + 2vw, 5rem) 0 clamp(2.5rem, 3rem + 2vw, 5rem); }
+.legal-wrap { max-width: 780px; }
+.legal h1 {
+  font-size: clamp(2.2rem, 1.5rem + 2.5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0.4rem 0 0.6rem;
+}
+.legal-meta {
+  margin: 0 0 2rem;
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.legal-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.legal section { margin: 2.2rem 0; }
+.legal h2 {
+  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.65rem);
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+}
+.legal p, .legal li { color: var(--ink-soft); font-size: 1rem; line-height: 1.6; }
+.legal ul, .legal ol { padding-left: 1.4rem; margin: 0.6rem 0 1rem; }
+.legal ul li, .legal ol li { margin-bottom: 0.4rem; }
+.legal ol > li { padding-left: 0.2rem; }
+.legal ul ul, .legal ol ul { margin-top: 0.3rem; }
+.legal strong { color: var(--ink); font-weight: 600; }
+.legal code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+}
+.legal a { color: var(--copper-dark); }
+.legal a:hover { color: var(--ink); }
+
+.legal-table {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+  margin: 0.5rem 0 1rem;
+}
+.legal-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.legal-col-a { font-weight: 600; color: var(--ink); }
+.legal-col-b { color: var(--ink-soft); font-size: 0.95rem; }
+@media (max-width: 700px) {
+  .legal-row { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
+.legal-back {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.legal-back a {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--copper-dark);
+}
+.legal-back a:hover { color: var(--ink); }
+.legal-back a::before { content: "← "; }
+
 /* Reveal */
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }

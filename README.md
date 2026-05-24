@@ -63,6 +63,8 @@ Na Railway zwykle nie trzeba ustawiać `SITE_URL`, bo serwer odczyta domenę z p
 | `public/index.html`, sekcja Opinie  | wstawić prawdziwe opinie po uzyskaniu zgody klientów                                               |
 | `public/index.html`, sekcja Realizacje | podmienić kafelki `.tile` na `<img loading="lazy" alt="...">` z prawdziwymi fotografiami         |
 | `public/index.html`, formularz `#zgloszenie` | wartość `value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"` w polu `input[name="access_key"]`, podmienić na prawdziwy klucz z [web3forms.com](https://web3forms.com) (zakładka Get Access Key, kilka sekund, podpinasz mail, na który mają lecieć zgłoszenia) |
+| `public/polityka-prywatnosci.html` | `NIP: XXXXXXXXXX` (dwa miejsca) oraz `[ulica, kod pocztowy, miejscowość]` na prawdziwe dane działalności gospodarczej |
+| `public/regulamin.html`            | te same placeholdery `NIP: XXXXXXXXXX` oraz `[ulica, kod pocztowy, miejscowość]` w §1                                  |
 
 ## Endpointy
 
@@ -70,6 +72,8 @@ Na Railway zwykle nie trzeba ustawiać `SITE_URL`, bo serwer odczyta domenę z p
 - `GET /robots.txt` generowany dynamicznie, z bezwzględnym `Sitemap:`
 - `GET /sitemap.xml` generowany dynamicznie z `lastmod` ustawionym na bieżący czas
 - `GET /sitemap-index.xml`
+- `GET /polityka-prywatnosci` strona prywatności (HTML z podstawianiem `SITE_URL` i `LAST_MODIFIED`)
+- `GET /regulamin` regulamin świadczenia usług (HTML z podstawianiem)
 - `GET /healthz` JSON 200, używany przez Railway healthcheck
 - `GET /.well-known/security.txt` generowany dynamicznie
 - `GET /manifest.json`, `/favicon.svg`, `/apple-touch-icon.svg`, `/og-image.svg`
@@ -99,14 +103,20 @@ Jeżeli serwis został utworzony przez `railway up` (upload bezpośredni, bez Gi
 ├── .nvmrc
 ├── .gitignore
 ├── README.md
+├── tools/
+│   └── build-og.js
 └── public/
     ├── index.html
+    ├── polityka-prywatnosci.html
+    ├── regulamin.html
     ├── styles.css
     ├── script.js
     ├── 404.html
     ├── favicon.svg
     ├── apple-touch-icon.svg
     ├── og-image.svg
+    ├── og-image.png
+    ├── og-image.jpg
     ├── manifest.json
     ├── humans.txt
     └── .well-known/

@@ -58,18 +58,29 @@ app.get('/robots.txt', (req, res) => {
   res.send(body);
 });
 
-const SITEMAP_PATHS = ['/', '/#uslugi', '/#obszar', '/#proces', '/#realizacje', '/#opinie', '/#kontakt', '/#faq'];
+const SITEMAP_PATHS = [
+  { path: '/', priority: '1.0', changefreq: 'weekly' },
+  { path: '/#uslugi', priority: '0.7', changefreq: 'weekly' },
+  { path: '/#obszar', priority: '0.7', changefreq: 'weekly' },
+  { path: '/#proces', priority: '0.6', changefreq: 'weekly' },
+  { path: '/#realizacje', priority: '0.6', changefreq: 'weekly' },
+  { path: '/#opinie', priority: '0.5', changefreq: 'weekly' },
+  { path: '/#kontakt', priority: '0.7', changefreq: 'weekly' },
+  { path: '/#faq', priority: '0.5', changefreq: 'weekly' },
+  { path: '/polityka-prywatnosci', priority: '0.3', changefreq: 'yearly' },
+  { path: '/regulamin', priority: '0.3', changefreq: 'yearly' }
+];
 
 app.get('/sitemap.xml', (req, res) => {
   const url = siteUrl(req);
   const lastmod = new Date().toISOString();
-  const urls = SITEMAP_PATHS.map(p => `  <url>
-    <loc>${url}${p}</loc>
+  const urls = SITEMAP_PATHS.map(item => `  <url>
+    <loc>${url}${item.path}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${p === '/' ? '1.0' : '0.7'}</priority>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="${url}${p}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${url}${p}"/>
+    <changefreq>${item.changefreq}</changefreq>
+    <priority>${item.priority}</priority>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="${url}${item.path}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${url}${item.path}"/>
   </url>`).join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -109,22 +120,29 @@ app.get('/sitemap-index.xml', (req, res) => {
   res.send(xml);
 });
 
-app.get('/', (req, res) => {
-  const file = path.join(__dirname, 'public', 'index.html');
-  fs.readFile(file, 'utf8', (err, html) => {
-    if (err) return res.status(500).send('Blad serwera');
-    const url = siteUrl(req);
-    const lastModified = new Date().toISOString();
-    const out = html
-      .replace(/\{\{SITE_URL\}\}/g, url)
-      .replace(/\{\{LAST_MODIFIED\}\}/g, lastModified);
-    res.set('Content-Type', 'text/html; charset=utf-8');
-    res.set('Cache-Control', HTML_CACHE);
-    res.send(out);
-  });
-});
+function serveHtml(filename) {
+  return (req, res) => {
+    const file = path.join(__dirname, 'public', filename);
+    fs.readFile(file, 'utf8', (err, html) => {
+      if (err) return res.status(500).send('Blad serwera');
+      const url = siteUrl(req);
+      const lastModified = new Date().toISOString();
+      const out = html
+        .replace(/\{\{SITE_URL\}\}/g, url)
+        .replace(/\{\{LAST_MODIFIED\}\}/g, lastModified);
+      res.set('Content-Type', 'text/html; charset=utf-8');
+      res.set('Cache-Control', HTML_CACHE);
+      res.send(out);
+    });
+  };
+}
+
+app.get('/', serveHtml('index.html'));
+app.get('/polityka-prywatnosci', serveHtml('polityka-prywatnosci.html'));
+app.get('/regulamin', serveHtml('regulamin.html'));
 
 app.use(express.static(path.join(__dirname, 'public'), {
+  extensions: ['html'],
   setHeaders(res, filePath) {
     const ext = path.extname(filePath).toLowerCase();
     if (['.html', '.xml', '.txt', '.json'].includes(ext)) {
