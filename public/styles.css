@@ -254,8 +254,20 @@ a:hover { color: var(--copper-dark); text-decoration-color: var(--copper); }
   z-index: 0;
 }
 .hero-wrap { position: relative; z-index: 1; max-width: 980px; }
-.hero h1 { max-width: 18ch; }
-.hero h1 .hero-line-2 { display: block; color: var(--ink-soft); font-weight: 500; }
+.hero h1 { max-width: 22ch; }
+.hero h1 .hero-line {
+  display: block;
+  white-space: nowrap;
+}
+.hero h1 .hero-em {
+  font-style: italic;
+  color: var(--copper);
+  font-weight: 500;
+}
+.hero h1 .hero-line-soft { color: var(--ink-soft); font-weight: 500; }
+@media (max-width: 520px) {
+  .hero h1 .hero-line { white-space: normal; }
+}
 .lede {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 1rem + 0.7vw, 1.45rem);
