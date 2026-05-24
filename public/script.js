@@ -22,6 +22,12 @@
       link.addEventListener('click', function (event) {
         var href = link.getAttribute('href');
         if (!href || href === '#') return;
+        if (href === '#top') {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          history.replaceState(null, '', window.location.pathname);
+          return;
+        }
         var target = document.querySelector(href);
         if (!target) return;
         event.preventDefault();

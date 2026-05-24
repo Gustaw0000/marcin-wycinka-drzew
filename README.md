@@ -19,6 +19,22 @@ node server.js
 
 Domyślnie serwer słucha na porcie 3000. Otwórz `http://localhost:3000`.
 
+## Google Search Console
+
+Wszystkie strony (`/`, `/polityka-prywatnosci`, `/regulamin`) mają w `<head>` metatag:
+
+```html
+<meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_PLACEHOLDER">
+```
+
+Aby zweryfikować domenę w GSC:
+
+1. Wejdź na [search.google.com/search-console](https://search.google.com/search-console), dodaj zasób typu "URL prefix" z pełnym adresem (np. `https://marcin-wycinka-drzew-production.up.railway.app/` albo własną domeną po wykupieniu).
+2. Wybierz metodę weryfikacji "Tag HTML", skopiuj wartość `content="..."` z proponowanego metatagu.
+3. W trzech plikach (`public/index.html`, `public/polityka-prywatnosci.html`, `public/regulamin.html`) zamień `GOOGLE_SEARCH_CONSOLE_VERIFICATION_PLACEHOLDER` na skopiowaną wartość. Najprościej Ctrl+H przez cały projekt.
+4. Commit, push, deploy. Wróć do GSC i kliknij "Zweryfikuj".
+5. Po weryfikacji zgłoś sitemap w GSC: Sitemaps → wklej `sitemap.xml` → Wyślij. Sitemap zawiera wszystkie ważne URL-e.
+
 ## Formularz kontaktowy (web3forms)
 
 Formularz `#zgloszenie` w sekcji Kontakt wysyła zgłoszenia przez [web3forms.com](https://web3forms.com), bez własnego backendu. Wystarczy darmowe konto z podpiętym mailem, dostaniesz access key, wklejasz go w `public/index.html`:
@@ -65,6 +81,7 @@ Na Railway zwykle nie trzeba ustawiać `SITE_URL`, bo serwer odczyta domenę z p
 | `public/index.html`, formularz `#zgloszenie` | wartość `value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"` w polu `input[name="access_key"]`, podmienić na prawdziwy klucz z [web3forms.com](https://web3forms.com) (zakładka Get Access Key, kilka sekund, podpinasz mail, na który mają lecieć zgłoszenia) |
 | `public/polityka-prywatnosci.html` | `NIP: XXXXXXXXXX` (dwa miejsca) oraz `[ulica, kod pocztowy, miejscowość]` na prawdziwe dane działalności gospodarczej |
 | `public/regulamin.html`            | te same placeholdery `NIP: XXXXXXXXXX` oraz `[ulica, kod pocztowy, miejscowość]` w §1                                  |
+| `public/index.html`, `polityka-prywatnosci.html`, `regulamin.html` | wartość `content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_PLACEHOLDER"` w metatagu `google-site-verification`, podmienić na prawdziwy kod z [Google Search Console](https://search.google.com/search-console) (replace_all przez 3 pliki, jeden kod w trzech miejscach) |
 
 ## Endpointy
 
