@@ -1,36 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#1f2a23"/>
-      <stop offset="60%" stop-color="#2c3a31"/>
-      <stop offset="100%" stop-color="#1a221d"/>
+      <stop offset="55%" stop-color="#26332b"/>
+      <stop offset="100%" stop-color="#18211c"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.6">
-      <stop offset="0%" stop-color="#b1632a" stop-opacity="0.45"/>
+    <radialGradient id="glow" cx="0.88" cy="0.12" r="0.7">
+      <stop offset="0%" stop-color="#b1632a" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#b1632a" stop-opacity="0.1"/>
       <stop offset="100%" stop-color="#b1632a" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#f3eedf" fill-opacity="0.05"/>
-    </pattern>
+    <radialGradient id="glow2" cx="0.05" cy="0.95" r="0.55">
+      <stop offset="0%" stop-color="#5d6b3f" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#5d6b3f" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
 
-  <g transform="translate(80, 130)">
-    <text x="0" y="0" font-family="Manrope, system-ui, sans-serif" font-size="22" letter-spacing="4" fill="#d68a44" font-weight="600">WARSZAWA, PRUSZKÓW, PIASTÓW, BRWINÓW, MAZOWSZE</text>
+  <g opacity="0.07" fill="#f3eedf">
+    <path d="M 970 90 L 1010 145 H 990 L 1025 200 H 1005 L 1040 250 H 940 L 975 200 H 955 L 990 145 H 970 Z"/>
+    <rect x="983" y="244" width="14" height="22"/>
+    <path d="M 1060 60 L 1090 102 H 1075 L 1102 144 H 1087 L 1115 184 H 1037 L 1065 144 H 1050 L 1077 102 H 1062 Z"/>
+    <rect x="1071" y="180" width="10" height="18"/>
   </g>
 
-  <g transform="translate(80, 210)">
-    <text x="0" y="0" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" fill="#f3eedf" letter-spacing="-2">Wycinka drzew,</text>
-    <text x="0" y="110" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" font-style="italic" fill="#d68a44" letter-spacing="-2">frezowanie pni,</text>
-    <text x="0" y="220" font-family="Fraunces, Georgia, serif" font-size="98" font-weight="500" fill="#f3eedf" letter-spacing="-2">podcinanie gałęzi.</text>
+  <line x1="80" y1="100" x2="160" y2="100" stroke="#b1632a" stroke-width="3"/>
+  <text x="80" y="138" font-family="Manrope, Arial, sans-serif" font-size="22" letter-spacing="5" fill="#d68a44" font-weight="700">WYCINKA DRZEW · WARSZAWA I MAZOWSZE</text>
+
+  <g font-family="Fraunces, Georgia, 'Times New Roman', serif" font-weight="500" fill="#f3eedf" letter-spacing="-3">
+    <text x="80" y="290" font-size="104">Wycinka drzew,</text>
+    <text x="80" y="402" font-size="104" font-style="italic" fill="#d68a44">frezowanie pni,</text>
+    <text x="80" y="514" font-size="104">podcinanie gałęzi.</text>
   </g>
 
-  <g transform="translate(80, 540)">
-    <rect x="0" y="-22" width="36" height="36" rx="6" fill="#f3eedf"/>
-    <path d="M18 -16 L25 -8.5 H22 L27 -1 H24 L29 6 H7 L12 -1 H9 L14 -8.5 H11 Z" fill="#1f2a23"/>
-    <text x="56" y="2" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#f3eedf">Marcin Kowalski</text>
-    <text x="56" y="34" font-family="Manrope, system-ui, sans-serif" font-size="18" fill="#d68a44" letter-spacing="2">ÓSMY ROK NA SWOIM · FAKTURA IMIENNA</text>
+  <g transform="translate(80, 575)">
+    <rect x="0" y="-26" width="38" height="38" rx="6" fill="#f3eedf"/>
+    <path d="M 19 -20 L 26 -12 H 23 L 28 -4 H 25 L 30 4 H 8 L 13 -4 H 10 L 15 -12 H 12 Z" fill="#1f2a23"/>
+    <rect x="17" y="2" width="4" height="6" fill="#b1632a"/>
+    <text x="56" y="-2" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#f3eedf">Marcin Kowalski</text>
+    <text x="56" y="24" font-family="Manrope, Arial, sans-serif" font-size="15" fill="#d68a44" letter-spacing="3" font-weight="600">ÓSMY ROK NA SWOIM · FAKTURA IMIENNA · BEZPŁATNA WYCENA</text>
+  </g>
+
+  <g transform="translate(1080, 555)" opacity="0.85">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#d68a44" stroke-width="2"/>
+    <path d="M -10 -2 L -4 6 L 12 -10" fill="none" stroke="#d68a44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>

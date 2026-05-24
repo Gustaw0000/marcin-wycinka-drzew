@@ -19,6 +19,17 @@ node server.js
 
 Domyślnie serwer słucha na porcie 3000. Otwórz `http://localhost:3000`.
 
+## Generowanie obrazka OG
+
+PNG i JPG dla podglądu Facebooka, LinkedIna, Slacka, Discorda są budowane z pliku źródłowego `public/og-image.svg`:
+
+```bash
+npm install        # raz, zainstaluje sharp z devDependencies
+npm run build:og   # wygeneruje public/og-image.png i public/og-image.jpg
+```
+
+Sharp jest tylko devDependency, więc nie ląduje w produkcyjnym buildzie Railway. Wygenerowane PNG i JPG są commitowane do repo i serwowane jako pliki statyczne.
+
 ## Zmienne środowiskowe
 
 | Zmienna     | Opis                                                                                       | Domyślnie       |
