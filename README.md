@@ -81,6 +81,7 @@ Na Railway zwykle nie trzeba ustawiać `SITE_URL`, bo serwer odczyta domenę z p
 | `public/index.html`, formularz `#zgloszenie` | wartość `value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"` w polu `input[name="access_key"]`, podmienić na prawdziwy klucz z [web3forms.com](https://web3forms.com) (zakładka Get Access Key, kilka sekund, podpinasz mail, na który mają lecieć zgłoszenia) |
 | `public/polityka-prywatnosci.html` | `NIP: XXXXXXXXXX` (dwa miejsca) oraz `[ulica, kod pocztowy, miejscowość]` na prawdziwe dane działalności gospodarczej |
 | `public/regulamin.html`            | te same placeholdery `NIP: XXXXXXXXXX` oraz `[ulica, kod pocztowy, miejscowość]` w §1                                  |
+| stopka wszystkich stron (`index.html`, `polityka-prywatnosci.html`, `regulamin.html`) | `NIP: XXXXXXXXXX` i `REGON: XXXXXXXXX` w bloku `.footer-business-id`, podmienić na prawdziwe identyfikatory działalności. Link "Sprawdź wpis w CEIDG" zostaje, kieruje na publiczną wyszukiwarkę CEIDG, klient wpisuje NIP i widzi wpis na żywo |
 | `public/index.html`, `polityka-prywatnosci.html`, `regulamin.html` | wartość `content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_PLACEHOLDER"` w metatagu `google-site-verification`, podmienić na prawdziwy kod z [Google Search Console](https://search.google.com/search-console) (replace_all przez 3 pliki, jeden kod w trzech miejscach) |
 
 ## Endpointy
