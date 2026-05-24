@@ -47,4 +47,42 @@
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
   }
+
+  var form = document.getElementById('zgloszenie');
+  if (form) {
+    var status = form.querySelector('.form-status');
+    var submit = form.querySelector('button[type="submit"]');
+    var phone = form.querySelector('a[href^="tel:"]') ? form.querySelector('a[href^="tel:"]').textContent : '';
+    var setStatus = function (text, cls) {
+      if (!status) return;
+      status.textContent = text;
+      status.className = 'form-status ' + (cls || '');
+    };
+    form.addEventListener('submit', function (event) {
+      if (typeof fetch !== 'function' || typeof FormData !== 'function') return;
+      event.preventDefault();
+      var data = new FormData(form);
+      if (submit) { submit.disabled = true; submit.dataset.label = submit.textContent; submit.textContent = 'Wysyłam...'; }
+      setStatus('Wysyłam zgłoszenie, chwila.', 'is-pending');
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        return res.json().then(function (json) { return { ok: res.ok, json: json }; });
+      }).then(function (out) {
+        if (out.ok && out.json && out.json.success) {
+          setStatus('Dzięki, zgłoszenie poszło. Oddzwonię najpóźniej tego samego wieczora.', 'is-ok');
+          form.reset();
+        } else {
+          var msg = (out.json && out.json.message) ? out.json.message : 'Nie udało się wysłać.';
+          setStatus('Coś poszło nie tak: ' + msg + ' Zadzwoń bezpośrednio na podany numer.', 'is-err');
+        }
+      }).catch(function () {
+        setStatus('Brak połączenia z serwerem formularza. Zadzwoń bezpośrednio na podany numer.', 'is-err');
+      }).then(function () {
+        if (submit) { submit.disabled = false; if (submit.dataset.label) submit.textContent = submit.dataset.label; }
+      });
+    });
+  }
 })();

@@ -19,6 +19,18 @@ node server.js
 
 Domyślnie serwer słucha na porcie 3000. Otwórz `http://localhost:3000`.
 
+## Formularz kontaktowy (web3forms)
+
+Formularz `#zgloszenie` w sekcji Kontakt wysyła zgłoszenia przez [web3forms.com](https://web3forms.com), bez własnego backendu. Wystarczy darmowe konto z podpiętym mailem, dostaniesz access key, wklejasz go w `public/index.html`:
+
+```html
+<input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER">
+```
+
+Każde poprawne zgłoszenie spada na podpięty mail z polami `Imie`, `Telefon`, `Miejscowosc`, `Opis sprawy`. JS w `public/script.js` wysyła zgłoszenie AJAX-em i pokazuje status (sukces/błąd) pod przyciskiem. Jeśli klient nie ma JavaScriptu, formularz wysyła się natywnie do tego samego endpointu, web3forms pokaże standardową stronę podziękowania.
+
+Pole `botcheck` jest ukrytą pułapką (honeypot), boty zaznaczą i zgłoszenie zostanie odrzucone po stronie web3forms. Nie usuwaj.
+
 ## Generowanie obrazka OG
 
 PNG i JPG dla podglądu Facebooka, LinkedIna, Slacka, Discorda są budowane z pliku źródłowego `public/og-image.svg`:
@@ -50,6 +62,7 @@ Na Railway zwykle nie trzeba ustawiać `SITE_URL`, bo serwer odczyta domenę z p
 | `public/humans.txt`                 | uzupełnić, kiedy będzie domena                                                                     |
 | `public/index.html`, sekcja Opinie  | wstawić prawdziwe opinie po uzyskaniu zgody klientów                                               |
 | `public/index.html`, sekcja Realizacje | podmienić kafelki `.tile` na `<img loading="lazy" alt="...">` z prawdziwymi fotografiami         |
+| `public/index.html`, formularz `#zgloszenie` | wartość `value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"` w polu `input[name="access_key"]`, podmienić na prawdziwy klucz z [web3forms.com](https://web3forms.com) (zakładka Get Access Key, kilka sekund, podpinasz mail, na który mają lecieć zgłoszenia) |
 
 ## Endpointy
 
